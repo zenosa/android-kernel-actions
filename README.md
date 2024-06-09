@@ -22,6 +22,7 @@ Builds Android kernel from the kernel repository.
 | `NAME` | Specify the name of the release file, defaults to the name of the repository |
 | `KERNEL_PATH` | Specify the path of the kernel source, defaults to `.` |
 | `ZIPPER_PATH` | Specify the path of the zip template, defaults to `zipper` |
+| `PYTHON_VERSION` | Specify the version of Python to use, either `3`, or `2`. defaults to `3` |
 
 ### Outputs
 
@@ -67,19 +68,22 @@ If you want to compile with Clang and LLVM without any of GNU's binutils, make s
 
 #### Ubuntu's GCC
 
-- `gcc/7`
-- `gcc/8`
+For older GCC use v0.4.0 action version
+
 - `gcc/9`
 - `gcc/10`
+- `gcc/11`
+- `gcc/12`
 
 #### Ubuntu's Clang
 
-- `clang/6.0`, `clang/6.0/binutils`
-- `clang/7`, `clang/7/binutils`
-- `clang/8`, `clang/8/binutils`
-- `clang/9`, `clang/9/binutils`
-- `clang/10`, `clang/10/binutils`
+For older Clang use v0.4.0 action version
+
 - `clang/11`, `clang/11/binutils`
+- `clang/12`, `clang/12/binutils`
+- `clang/13`, `clang/13/binutils`
+- `clang/14`, `clang/14/binutils`
+- `clang/15`, `clang/15/binutils`
 
 #### [Proton Clang](https://github.com/kdrag0n/proton-clang)
 
@@ -174,6 +178,10 @@ jobs:
 ```
 
 ## Troubleshooting
+
+### Script `InvalidSyntax` exceptions
+
+Your kernel source scripts might not support Python 3 yet, set `PYTHON_VERSION` environment variable to "2".
 
 ### Error codes
 
